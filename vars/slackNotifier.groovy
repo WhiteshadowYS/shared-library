@@ -1,13 +1,13 @@
 #!/usr/bin/env groovy
 
 def call(String result) {
-  if ( buildResult == "SUCCESS" ) {
+  if ( result == "SUCCESS" ) {
     slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful", color: "good"
   }
-  else if ( buildResult == "FAILURE" ) { 
+  else if ( result == "FAILURE" ) { 
     slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed", color: "danger"
   }
-  else if ( buildResult == "UNSTABLE" ) { 
+  else if ( result == "UNSTABLE" ) { 
     slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable", color: "warning"
   }
   else {
