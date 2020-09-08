@@ -2,15 +2,15 @@
 
 def call(String buildResult) {
   if ( buildResult == "SUCCESS" ) {
-    slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+    slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful", color: "good"
   }
-  else if( buildResult == "FAILURE" ) { 
-    slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
+  else if ( buildResult == "FAILURE" ) { 
+    slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed", color: "danger"
   }
-  else if( buildResult == "UNSTABLE" ) { 
-    slackSend color: "warning", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable"
+  else if ( buildResult == "UNSTABLE" ) { 
+    slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable", color: "warning"
   }
   else {
-    slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} its resulat was unclear"	
+    slackSend message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} its resulat was unclear", color: "danger"
   }
 }
