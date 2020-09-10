@@ -7,6 +7,7 @@ String call(String message, String botToken, String chatId) {
     response = new URL("https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=$encodedMessage")
 
     print 'Call before return'
+    print response 
 
     return response
 }
